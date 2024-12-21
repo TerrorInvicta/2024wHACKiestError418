@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:200,200i,300,300i,400,400i,500,500i,600,600i,700,700i|Titillium+Web"
+      rel="stylesheet"
+    />
+    <title>Cafeteria Details</title>
+    <style>
+      * {
+        background: #b15e5e;
+      }
+      h2 {
+        color: #17376e;
+      }
+      body {
+        font-family: "Montserrat", sans-serif;
+        margin: 20px;
+        text-align: center;
+      }
+      #title {
+        color: rgb(127, 71, 117);
+        text-align: center;
+      }
+      .timings {
+        display: inline-block; /* Make the border wrap only around the text */
+        padding: 10px; /* Add some space around the text */
+        border: 2px solid #333; /* Set border color and thickness */
+        border-radius: 5px; /* Round the corners */
+        padding-top: 0px;
+        padding-bottom: 0px;
+      }
+      .menu-container {
+        max-width: 800px;
+        margin: auto;
+      }
+      .search-container {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        margin-bottom: 10px;
+      }
+      .search-box {
+        flex: 2;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      .search-btn {
+        flex: 1;
+        padding: 10px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .search-btn:hover {
+        background-color: #0056b3;
+      }
+      .price-range-container {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+      }
+      .price-range {
+        flex: 1;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        table-layout: fixed;
+      }
+      th,
+      td {
+        padding: 10px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+      }
+      th {
+        background-color: #f4f4f4;
+      }
+      th:nth-child(2),
+      td:nth-child(2) {
+        width: 75px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="title">Food Courts</h1>
+    <p>
+      MSRIT has two food courts providing ample choice to students. The two full
+      fledged canteens provide hygienic and sumptuous meals both in north Indian
+      and south Indian styles.
+    </p>
+
+    <hr>
+    <h2>ESB Block Canteen</h2>
+    <span class="timings">
+      <h3>Timings:</h3>
+      <p>Weekdays: 9 AM to 4:30 PM</p>
+      <p>Weekends: 9 AM to 2:30 PM</p>
+    </span>
+    <p>
+      This canteen is present in the Engineering Sciences Block. It features a
+      large variety of foods. It also consists of a juice corner serving various
+      fresh juices.
+    </p>
+    <hr>
+
+    <h2>Multipurpose Block Canteen</h2>
+    <span class="timings">
+      <h3>Timings:</h3>
+      <p>Weekdays: 9 AM to 4:30 PM</p>
+      <p>Weekends: 9 AM to 2:30 PM</p>
+    </span>
+    <p>
+      This canteen is present in the multipurpose block. It features a large
+      variety of foods including various snacks and cakes. Some of the foods
+      provided here are:
+    </p>
+    <div class="menu-container">
+      <div class="search-container">
+        <input
+          type="text"
+          id="search"
+          class="search-box"
+          placeholder="Search for an item..."
+        />
+        <button class="search-btn" onclick="filterMenu()">Search</button>
+      </div>
+
+      <div class="price-range-container">
+        <input
+          type="number"
+          id="min-price"
+          class="price-range"
+          placeholder="Min Price"
+        />
+        <input
+          type="number"
+          id="max-price"
+          class="price-range"
+          placeholder="Max Price"
+        />
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Cost</th>
+            <th>Type</th>
+            <th>Sold In</th>
+          </tr>
+        </thead>
+        <tbody id="menu-list">
+          <tr
+            class="menu-item"
+            data-name="coffee"
+            data-type="drink"
+            data-location="ramaiah canteen"
+            data-price="12"
+          >
+            <td>Coffee</td>
+            <td>12 Rs.</td>
+            <td>Drink</td>
+            <td>Ramaiah Canteen</td>
+          </tr>
+          <tr
+            class="menu-item"
+            data-name="tea"
+            data-type="drink"
+            data-location="ramaiah canteen"
+            data-price="12"
+          >
+            <td>Tea</td>
+            <td>12 Rs.</td>
+            <td>Drink</td>
+            <td>Ramaiah Canteen</td>
+          </tr>
+          <tr
+            class="menu-item"
+            data-name="badam milk"
+            data-type="drink"
+            data-location="ramaiah canteen"
+            data-price="12"
+          >
+            <td>Badam Milk</td>
+            <td>12 Rs.</td>
+            <td>Drink</td>
+            <td>Ramaiah Canteen</td>
+          </tr>
+          <tr
+            class="menu-item"
+            data-name="idli"
+            data-type="south indian"
+            data-location="ramaiah canteen"
+            data-price="25"
+          >
+            <td>Idli (2 No.)</td>
+            <td>25 Rs.</td>
+            <td>South Indian</td>
+            <td>Ramaiah Canteen</td>
+          </tr>
+          <tr
+            class="menu-item"
+            data-name="vada"
+            data-type="south indian"
+            data-location="ramaiah canteen"
+            data-price="25"
+          >
+            <td>Vada (1 No.)</td>
+            <td>25 Rs.</td>
+            <td>South Indian</td>
+            <td>Ramaiah Canteen</td>
+          </tr>
+          <tr
+            class="menu-item"
+            data-name="idli vada"
+            data-type="south indian"
+            data-location="ramaiah canteen"
+            data-price="45"
+          >
+            <td>Idli Vada</td>
+            <td>45 Rs.</td>
+            <td>South Indian</td>
+            <td>Ramaiah Canteen</td>
+          </tr>
+          <tr
+            class="menu-item"
+            data-name="rava idli"
+            data-type="south indian"
+            data-location="ramaiah canteen"
+            data-price="30"
+          >
+            <td>Rava Idli (1 No.)</td>
+            <td>30 Rs.</td>
+            <td>South Indian</td>
+            <td>Ramaiah Canteen</td>
+          </tr>
+          <tr
+            class="menu-item"
+            data-name="chapati"
+            data-type="north indian"
+            data-location="ramaiah canteen"
+            data-price="45"
+          >
+            <td>Chapati (3 No.)</td>
+            <td>45 Rs.</td>
+            <td>North Indian</td>
+            <td>Ramaiah Canteen</td>
+          </tr>
+          <tr
+            class="menu-item"
+            data-name="kerala parota"
+            data-type="south indian"
+            data-location="ramaiah canteen"
+            data-price="45"
+          >
+            <td>Kerala Parota (2 No.)</td>
+            <td>45 Rs.</td>
+            <td>South Indian</td>
+            <td>Ramaiah Canteen</td>
+          </tr>
+          <tr
+            class="menu-item"
+            data-name="akki roti"
+            data-type="south indian"
+            data-location="ramaiah canteen"
+            data-price="45"
+          >
+            <td>Akki Roti (3 No.)</td>
+            <td>45 Rs.</td>
+            <td>South Indian</td>
+            <td>Ramaiah Canteen</td>
+          </tr>
+          <tr
+            class="menu-item"
+            data-name="poori"
+            data-type="north indian"
+            data-location="ramaiah canteen"
+            data-price="45"
+          >
+            <td>Poori (3 No.)</td>
+            <td>45 Rs.</td>
+            <td>North Indian</td>
+            <td>Ramaiah Canteen</td>
+          </tr>
+          <tr
+            class="menu-item"
+            data-name="dosa"
+            data-type="south indian"
+            data-location="ramaiah canteen"
+            data-price="40"
+          >
+            <td>Dosa (Plain)</td>
+            <td>40 Rs.</td>
+            <td>South Indian</td>
+            <td>Ramaiah Canteen</td>
+          </tr>
+          <tr
+            class="menu-item"
+            data-name="masala dosa"
+            data-type="south indian"
+            data-location="ramaiah canteen"
+            data-price="45"
+          >
+            <td>Dosa (Masala & Set)</td>
+            <td>45 Rs.</td>
+            <td>South Indian</td>
+            <td>Ramaiah Canteen</td>
+          </tr>
+          <tr
+            class="menu-item"
+            data-name="onion dosa"
+            data-type="south indian"
+            data-location="ramaiah canteen"
+            data-price="50"
+          >
+            <td>Onion Dosa</td>
+            <td>50 Rs.</td>
+            <td>South Indian</td>
+            <td>Ramaiah Canteen</td>
+          </tr>
+          <tr
+            class="menu-item"
+            data-name="rice bath"
+            data-type="south indian"
+            data-location="ramaiah canteen"
+            data-price="35"
+          >
+            <td>Rice Bath</td>
+            <td>35 Rs.</td>
+            <td>South Indian</td>
+            <td>Ramaiah Canteen</td>
+          </tr>
+          <tr
+            class="menu-item"
+            data-name="bisi bele bath"
+            data-type="south indian"
+            data-location="ramaiah canteen"
+            data-price="35"
+          >
+            <td>Bisi Bele Bath</td>
+            <td>35 Rs.</td>
+            <td>South Indian</td>
+            <td>Ramaiah Canteen</td>
+          </tr>
+          <tr
+            class="menu-item"
+            data-name="rice sambar"
+            data-type="south indian"
+            data-location="ramaiah canteen"
+            data-price="35"
+          >
+            <td>Rice Sambar / Rasam</td>
+            <td>35 Rs.</td>
+            <td>South Indian</td>
+            <td>Ramaiah Canteen</td>
+          </tr>
+          <tr
+            class="menu-item"
+            data-name="curd rice"
+            data-type="south indian"
+            data-location="ramaiah canteen"
+            data-price="30"
+          >
+            <td>Curd Rice</td>
+            <td>30 Rs.</td>
+            <td>South Indian</td>
+            <td>Ramaiah Canteen</td>
+          </tr>
+          <tr
+            class="menu-item"
+            data-name="chow chow bath"
+            data-type="south indian"
+            data-location="ramaiah canteen"
+            data-price="40"
+          >
+            <td>Chow-Chow Bath</td>
+            <td>40 Rs.</td>
+            <td>South Indian</td>
+            <td>Ramaiah Canteen</td>
+          </tr>
+          <tr
+            class="menu-item"
+            data-name="bajji"
+            data-type="snack"
+            data-location="ramaiah canteen"
+            data-price="25"
+          >
+            <td>Bajji</td>
+            <td>25 Rs.</td>
+            <td>Snack</td>
+            <td>Ramaiah Canteen</td>
+          </tr>
+          <tr
+            class="menu-item"
+            data-name="mangalore buns"
+            data-type="snack"
+            data-location="ramaiah canteen"
+            data-price="20"
+          >
+            <td>Mangalore Buns (1 No.)</td>
+            <td>20 Rs.</td>
+            <td>Snack</td>
+            <td>Ramaiah Canteen</td>
+          </tr>
+          <tr
+            class="menu-item"
+            data-name="meals"
+            data-type="combo"
+            data-location="ramaiah canteen"
+            data-price="45"
+          >
+            <td>Meals</td>
+            <td>45 Rs.</td>
+            <td>
+              Combo (1 Chapati / Poori, 1 Papad, Rice, 2 Rasam, 1 Sambhar,
+              Pickle, Curd Rice)
+            </td>
+            <td>Ramaiah Canteen</td>
+          </tr>
+          <tr
+            class="menu-item"
+            data-name="veg maggi"
+            data-type="snack"
+            data-location="ramaiah cafeteria"
+            data-price="40"
+          >
+            <td>Veg Maggi</td>
+            <td>40 Rs.</td>
+            <td>Snack</td>
+            <td>Ramaiah Cafeteria</td>
+          </tr>
+          <tr
+            class="menu-item"
+            data-name="cheese maggi"
+            data-type="snack"
+            data-location="ramaiah cafeteria"
+            data-price="50"
+          >
+            <td>Cheese Maggi</td>
+            <td>50 Rs.</td>
+            <td>Snack</td>
+            <td>Ramaiah Cafeteria</td>
+          </tr>
+          <tr
+            class="menu-item"
+            data-name="peri peri maggi"
+            data-type="snack"
+            data-location="ramaiah cafeteria"
+            data-price="50"
+          >
+            <td>Peri Peri Maggi</td>
+            <td>50 Rs.</td>
+            <td>Snack</td>
+            <td>Ramaiah Cafeteria</td>
+          </tr>
+          <tr
+            class="menu-item"
+            data-name="fried rice"
+            data-type="chinese"
+            data-location="ramaiah cafeteria"
+            data-price="50"
+          >
+            <td>Fried Rice</td>
+            <td>50 Rs.</td>
+            <td>Chinese</td>
+            <td>Ramaiah Cafeteria</td>
+          </tr>
+          <tr
+            class="menu-item"
+            data-name="peri peri rice"
+            data-type="chinese"
+            data-location="ramaiah cafeteria"
+            data-price="60"
+          >
+            <td>Peri Peri Rice</td>
+            <td>60 Rs.</td>
+            <td>Chinese</td>
+            <td>Ramaiah Cafeteria</td>
+          </tr>
+          <tr
+            class="menu-item"
+            data-name="gobi rice"
+            data-type="chinese"
+            data-location="ramaiah cafeteria"
+            data-price="70"
+          >
+            <td>Gobi Rice</td>
+            <td>70 Rs.</td>
+            <td>Chinese</td>
+            <td>Ramaiah Cafeteria</td>
+          </tr>
+          <tr
+            class="menu-item"
+            data-name="paneer rice"
+            data-type="chinese"
+            data-location="ramaiah cafeteria"
+            data-price="80"
+          >
+            <td>Paneer Rice</td>
+            <td>80 Rs.</td>
+            <td>Chinese</td>
+            <td>Ramaiah Cafeteria</td>
+          </tr>
+          <tr
+            class="menu-item"
+            data-name="manchurian rice"
+            data-type="chinese"
+            data-location="ramaiah cafeteria"
+            data-price="80"
+          >
+            <td>Manchurian Rice</td>
+            <td>80 Rs.</td>
+            <td>Chinese</td>
+            <td>Ramaiah Cafeteria</td>
+          </tr>
+          <tr
+            class="menu-item"
+            data-name="baby corn rice"
+            data-type="chinese"
+            data-location="ramaiah cafeteria"
+            data-price="80"
+          >
+            <td>Baby Corn Rice</td>
+            <td>80 Rs.</td>
+            <td>Chinese</td>
+            <td>Ramaiah Cafeteria</td>
+          </tr>
+          <tr
+            class="menu-item"
+            data-name="mushroom rice"
+            data-type="chinese"
+            data-location="ramaiah cafeteria"
+            data-price="90"
+          >
+            <td>Mushroom Rice</td>
+            <td>90 Rs.</td>
+            <td>Chinese</td>
+            <td>Ramaiah Cafeteria</td>
+          </tr>
+          <tr
+            class="menu-item"
+            data-name="soya peas pulav"
+            data-type="north indian"
+            data-location="ramaiah cafeteria"
+            data-price="60"
+          >
+            <td>Soya Peas Pulav</td>
+            <td>60 Rs.</td>
+            <td>North Indian</td>
+            <td>Ramaiah Cafeteria</td>
+          </tr>
+          <tr
+            class="menu-item"
+            data-name="hariyali biryani"
+            data-type="north indian"
+            data-location="ramaiah cafeteria"
+            data-price="60"
+          >
+            <td>Hariyali Biryani</td>
+            <td>60 Rs.</td>
+            <td>North Indian</td>
+            <td>Ramaiah Cafeteria</td>
+          </tr>
+          <tr
+            class="menu-item"
+            data-name="tawa pulav"
+            data-type="north indian"
+            data-location="ramaiah cafeteria"
+            data-price="60"
+          >
+            <td>Tawa Pulav</td>
+            <td>60 Rs.</td>
+            <td>North Indian</td>
+            <td>Ramaiah Cafeteria</td>
+          </tr>
+          <tr
+            class="menu-item"
+            data-name="veg noodles"
+            data-type="chinese"
+            data-location="ramaiah cafeteria"
+            data-price="50"
+          >
+            <td>Veg Noodles</td>
+            <td>50 Rs.</td>
+            <td>Chinese</td>
+            <td>Ramaiah Cafeteria</td>
+          </tr>
+          <tr
+            class="menu-item"
+            data-name="peri peri noodles"
+            data-type="chinese"
+            data-location="ramaiah cafeteria"
+            data-price="60"
+          >
+            <td>Peri Peri Noodles</td>
+            <td>60 Rs.</td>
+            <td>Chinese</td>
+            <td>Ramaiah Cafeteria</td>
+          </tr>
+          <tr
+            class="menu-item"
+            data-name="gobi noodles"
+            data-type="chinese"
+            data-location="ramaiah cafeteria"
+            data-price="70"
+          >
+            <td>Gobi Noodles</td>
+            <td>70 Rs.</td>
+            <td>Chinese</td>
+            <td>Ramaiah Cafeteria</td>
+          </tr>
+          <tr
+            class="menu-item"
+            data-name="mushroom noodles"
+            data-type="chinese"
+            data-location="ramaiah cafeteria"
+            data-price="90"
+          >
+            <td>Mushroom Noodles</td>
+            <td>90 Rs.</td>
+            <td>Chinese</td>
+            <td>Ramaiah Cafeteria</td>
+          </tr>
+          <tr
+            class="menu-item"
+            data-name="aloo paratha"
+            data-type="north indian"
+            data-location="ramaiah cafeteria"
+            data-price="60"
+          >
+            <td>Aloo Paratha</td>
+            <td>60 Rs.</td>
+            <td>North Indian</td>
+            <td>Ramaiah Cafeteria</td>
+          </tr>
+          <tr
+            class="menu-item"
+            data-name="gobi paratha"
+            data-type="north indian"
+            data-location="ramaiah cafeteria"
+            data-price="60"
+          >
+            <td>Gobi Paratha</td>
+            <td>60 Rs.</td>
+            <td>North Indian</td>
+            <td>Ramaiah Cafeteria</td>
+          </tr>
+          <tr
+            class="menu-item"
+            data-name="onion paratha"
+            data-type="north indian"
+            data-location="ramaiah cafeteria"
+            data-price="60"
+          >
+            <td>Onion Paratha</td>
+            <td>60 Rs.</td>
+            <td>North Indian</td>
+            <td>Ramaiah Cafeteria</td>
+          </tr>
+          <tr
+            class="menu-item"
+            data-name="paneer paratha"
+            data-type="north indian"
+            data-location="ramaiah cafeteria"
+            data-price="70"
+          >
+            <td>Paneer Paratha</td>
+            <td>70 Rs.</td>
+            <td>North Indian</td>
+            <td>Ramaiah Cafeteria</td>
+          </tr>
+          <tr
+            class="menu-item"
+            data-name="chilli paratha"
+            data-type="north indian"
+            data-location="ramaiah cafeteria"
+            data-price="60"
+          >
+            <td>Chilli Paratha</td>
+            <td>60 Rs.</td>
+            <td>North Indian</td>
+            <td>Ramaiah Cafeteria</td>
+          </tr>
+          <tr
+            class="menu-item"
+            data-name="roomali roti"
+            data-type="north indian"
+            data-location="ramaiah cafeteria"
+            data-price="60"
+          >
+            <td>Roomali Roti</td>
+            <td>60 Rs.</td>
+            <td>North Indian</td>
+            <td>Ramaiah Cafeteria</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <script>
+      function filterMenu() {
+        const searchQuery = document
+          .getElementById("search")
+          .value.toLowerCase();
+        const minPrice =
+          parseFloat(document.getElementById("min-price").value) || 0;
+        const maxPrice =
+          parseFloat(document.getElementById("max-price").value) || Infinity;
+        const menuItems = document.querySelectorAll(".menu-item");
+
+        menuItems.forEach((item) => {
+          const itemName = item.getAttribute("data-name");
+          const itemType = item.getAttribute("data-type");
+          const itemLocation = item.getAttribute("data-location");
+          const itemPrice = parseFloat(item.getAttribute("data-price"));
+
+          if (
+            (itemName.includes(searchQuery) ||
+              itemType.includes(searchQuery) ||
+              itemLocation.includes(searchQuery)) &&
+            itemPrice >= minPrice &&
+            itemPrice <= maxPrice
+          ) {
+            item.style.display = "";
+          } else {
+            item.style.display = "none";
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
