@@ -1,0 +1,92 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Body */
+  body {
+    font-family: "Montserrat", sans-serif; /* Basic font-family */
+    background-image :url("back2.jpg"); /* Default background color */
+    background-size: 100%;
+    color: #ffffff; /* Default text color */
+  }
+  
+  /* Header */
+  header {
+    display: flex; /* For horizontal alignment */
+    justify-content: space-between; /* Space between logo and menu */
+    align-items: center; /* Center vertically */
+    padding: 10px 20px; /* Spacing */
+    background-color: #380038;/* background-color: #380038; Header background color */
+    border-bottom: 1px solid #ccc; /* Optional divider */
+  }
+  
+  .menu-icon {
+    font-size: 1.5em; /* Icon size */
+    cursor: pointer; /* Mouse pointer effect */
+  }
+  
+  /* Introduction Section */
+  .intro {
+    text-align: center; /* Center align text */
+    margin: 0px; /* Margin around the section */
+    padding: 10px; /* Padding inside the section */
+    font-size: 1.2em; /* Font size */
+   
+    border: 0px solid #ccc; /* Optional border */
+    border-radius: 0px; /* Rounded corners */
+  }
+  
+  /* Boxes Section */
+  .boxes {
+    display: grid; /* Grid layout */
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    column-gap: 50px;
+    row-gap: 20px; /* Spacing between boxes */
+    padding: 20px; /* Padding around the grid */
+  }
+  
+  .box {
+    text-align: center; /* Center align content */
+    /* border: 1px solid #ccc; Box border */
+    margin-left: 200px;
+    padding: 10px; /* Padding inside the box */
+    width: 250px;
+    height: 250px;
+    border-radius: 5px; /* Rounded corners */
+    /* background-color: #f9f9f9; Box background color */
+    transition: transform 0.3s, box-shadow 0.3s; /* Hover animation */
+  }
+  
+  .box:hover {
+    transform: scale(1.05); /* Slightly increase size on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow effect */
+  }
+/*   
+  /* Image Placeholder */
+  .image {
+    width: 10%; /* Full width */
+    height: 20px; /* Fixed height */
+    /* background-color: #ddd; Placeholder color */
+    margin-bottom: 10px; /* Spacing below image */
+    border-radius: 5px; /* Rounded corners */
+  }
+   */
+  /* Footer */
+  footer {
+    text-align: center; /* Center align text */
+    padding: 10px; /* Padding */
+    background-color: #f8f8f8; /* Footer background color */
+    border-top: 1px solid #ccc; /* Divider */
+    font-size: 0.9em; /* Smaller text size */
+    color: #666; /* Lighter text color */
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .boxes {
+      grid-template-columns: 1fr; /* Single column layout for small screens */
+    }
+  }
