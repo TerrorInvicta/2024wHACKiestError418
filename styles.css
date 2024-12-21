@@ -37,8 +37,21 @@
    
     border: 0px solid #ccc; /* Optional border */
     border-radius: 0px; /* Rounded corners */
-  }
-  
+      }
+  @media (max-width: 768px) {
+  .boxes {
+    grid-template-columns: 1fr; /* Single column for mobile */
+    row-gap: 20px; /* Spacing between rows */
+      }
+    }
+
+    @media (min-width: 769px) and (max-width: 1200px) {
+  .boxes {
+    grid-template-columns: repeat(2, 1fr); /* Two columns for laptops */
+    column-gap: 20px; /* Spacing between columns */
+    row-gap: 20px; /* Spacing between rows */
+      }
+    }
   /* Boxes Section */
   .boxes {
     display: grid; /* Grid layout */
