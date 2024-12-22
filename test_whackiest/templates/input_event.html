@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Event</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 100px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-size: 1.1em;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.1em;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Add Event</h2>
+        <form method="POST" action="/add_event">
+            <label for="event_name">Event Name</label>
+            <input type="text" id="event_name" name="event_name" required>
+
+            <label for="event_date">Event Date</label>
+            <input type="date" id="event_date" name="event_date" required>
+
+            <label for="event_time">Event Time</label>
+            <input type="time" id="event_time" name="event_time" required>
+
+            <label for="event_location">Location</label>
+            <input type="text" id="event_location" name="event_location" required>
+
+            <label for="event_organizer">Organizer</label>
+            <input type="text" id="event_organizer" name="event_organizer" required>
+
+            <label for="event_club">The Club under which the event is held</label>
+            <input type="text" id="event_club" name="event_club" required>
+
+            <button type="submit">Submit Event</button>
+        </form>
+    </div>
+</body>
+</html>
