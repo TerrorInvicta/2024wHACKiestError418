@@ -1,0 +1,27 @@
+header {
+    display: flex; /* For horizontal alignment */
+    justify-content: space-between; /* Space between logo and menu */
+    color:white;
+    align-items: center; /* Center vertically */
+    padding: 10px 20px; /* Spacing */
+    background-color: #380038;/* background-color: #380038; Header background color */
+    border-bottom: 1px solid #ccc; /* Optional divider */
+  }
+  #div1
+  {
+    background-image: url("food3.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    ;
+  }
+  .c1
+  { display: inline;
+    border: black solid 5px;
+    background-color: black;
+    color: white;
+  }
+  .timings
+  { display: inline;
+    background-color: black;
+    color: white;
+  }
